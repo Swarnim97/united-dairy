@@ -1,6 +1,7 @@
 
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +10,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 interface CarouselImage {
   src: string;
@@ -35,6 +38,12 @@ const images: CarouselImage[] = [
 ];
 
 const Hero = () => {
+  const [api, setApi] = React.useState<any>(null);
+  const autoplayPlugin = React.useMemo(() => 
+    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true }), 
+    []
+  );
+
   return (
     <section className="relative py-20 flex flex-col items-center justify-center overflow-hidden">
       {/* Background gradient */}
@@ -83,7 +92,14 @@ const Hero = () => {
           </p>
         </div>
         
-        <Carousel className="w-full max-w-5xl mx-auto">
+        <Carousel 
+          className="w-full max-w-5xl mx-auto"
+          plugins={[autoplayPlugin]}
+          setApi={setApi}
+          opts={{
+            loop: true,
+          }}
+        >
           <CarouselContent>
             {images.map((image, index) => (
               <CarouselItem key={index} className="md:basis-full lg:basis-full">
