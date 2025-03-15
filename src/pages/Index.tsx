@@ -3,7 +3,6 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
-import ProductCarousel from '@/components/ProductCarousel';
 
 const features = [
   {
@@ -27,13 +26,8 @@ const features = [
 const Index = () => {
   return (
     <Layout>
-      {/* Hero Section */}
+      {/* Hero Section (now includes the carousel) */}
       <Hero />
-      
-      {/* Product Carousel */}
-      <section className="bg-secondary/30 py-16">
-        <ProductCarousel />
-      </section>
       
       {/* Features Section */}
       <section className="section-spacing bg-white">
