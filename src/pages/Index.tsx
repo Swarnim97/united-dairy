@@ -6,20 +6,20 @@ import Hero from '@/components/Hero';
 
 const features = [
   {
-    title: 'Premium Quality',
-    description: 'Our products are made with the highest quality materials and attention to detail.',
+    title: 'Retail Food Supply',
+    description: 'Premium quality food products for retailers at competitive wholesale prices.',
   },
   {
-    title: 'Minimalist Design',
-    description: 'Clean lines, neutral colors, and simple shapes define our design philosophy.',
+    title: 'Food Service',
+    description: 'Complete food service solutions for restaurants, caterers, and institutional kitchens.',
   },
   {
-    title: 'Functionality',
-    description: 'Every product is designed with a purpose, focusing on both form and function.',
+    title: '3PL Services',
+    description: 'Efficient third-party logistics with temperature-controlled storage and distribution.',
   },
   {
-    title: 'Sustainability',
-    description: 'We're committed to sustainable practices throughout our design and production process.',
+    title: 'Wholesale Solutions',
+    description: 'Bulk purchasing options designed specifically for business customers.',
   },
 ];
 
@@ -34,10 +34,10 @@ const Index = () => {
         <div className="layout-grid">
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-              Designed with Purpose
+              Business Solutions
             </h2>
             <p className="text-lg text-muted-foreground">
-              Our approach blends elegant aesthetics with thoughtful functionality
+              Comprehensive wholesale services tailored for businesses of all sizes
             </p>
           </div>
           
@@ -70,10 +70,10 @@ const Index = () => {
         <div className="layout-grid">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6">
-              Ready to transform your space?
+              Ready to streamline your business supplies?
             </h2>
             <p className="text-lg mb-8 text-primary-foreground/90">
-              Browse our curated collection and find the perfect piece for your home or office.
+              Join thousands of businesses who trust us with their wholesale needs.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link

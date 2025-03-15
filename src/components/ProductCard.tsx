@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { ShoppingCart, Plus } from 'lucide-react';
+import { ShoppingCart, Info } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/components/ui/use-toast';
 
@@ -62,14 +62,25 @@ const ProductCard = ({ id, name, price, image, category }: ProductCardProps) => 
       {/* Content */}
       <div className="flex flex-1 flex-col p-4">
         <h3 className="line-clamp-1 text-base font-medium">{name}</h3>
-        <p className="mt-1 font-medium text-primary">${price.toFixed(2)}</p>
-        <button
-          onClick={handleAddToOrder}
-          className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary py-2.5 px-4 text-sm font-medium text-white shadow-button transition-all hover:bg-primary/90"
-        >
-          <Plus className="h-4 w-4" />
-          <span>Add to Order</span>
-        </button>
+        <div className="flex justify-between items-center mt-1">
+          <p className="font-medium text-primary">${price.toFixed(2)}</p>
+          <span className="text-xs text-muted-foreground">Per unit</span>
+        </div>
+        <div className="mt-4 grid grid-cols-2 gap-2">
+          <button
+            onClick={handleAddToOrder}
+            className="inline-flex items-center justify-center gap-1 rounded-md bg-primary py-2 px-3 text-sm font-medium text-white shadow-button transition-all hover:bg-primary/90"
+          >
+            <ShoppingCart className="h-4 w-4" />
+            <span>Add</span>
+          </button>
+          <button
+            className="inline-flex items-center justify-center gap-1 rounded-md bg-secondary py-2 px-3 text-sm font-medium text-secondary-foreground shadow-button transition-all hover:bg-secondary/80"
+          >
+            <Info className="h-4 w-4" />
+            <span>Details</span>
+          </button>
+        </div>
       </div>
     </div>
   );
