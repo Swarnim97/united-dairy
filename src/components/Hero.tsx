@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative py-20 flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent opacity-90 z-0"></div>
       
@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="absolute bottom-1/4 right-1/3 w-64 h-64 bg-secondary/20 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       
       {/* Content */}
-      <div className="layout-grid relative z-10 mt-12">
+      <div className="layout-grid relative z-10">
         <div className="max-w-3xl mx-auto text-center animate-slide-in-up">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-balance mb-6">
             Your Business Supply Partner
