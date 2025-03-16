@@ -4,27 +4,27 @@ import React from 'react';
 const brandLogos = [
   {
     name: 'Brand 1',
-    logo: '/lovable-uploads/zaaki.png',
+    logo: 'lovable-uploads/zaaki.png',
     alt: 'Brand 1 logo'
   },
   {
     name: 'Brand 2',
-    logo: '/lovable-uploads/agropur.png',
+    logo: 'lovable-uploads/agropur.png',
     alt: 'Brand 2 logo'
   },
   {
     name: 'Brand 3',
-    logo: '/lovable-uploads/Sealtest.png',
+    logo: 'lovable-uploads/Sealtest.png',
     alt: 'Brand 3 logo'
   },
   {
     name: 'Brand 4',
-    logo: '/lovable-uploads/gaylea.png',
+    logo: 'lovable-uploads/gaylea.png',
     alt: 'Brand 4 logo'
   },
   {
     name: 'Brand 5',
-    logo: '/lovable-uploads/gray-ridge.png',
+    logo: 'lovable-uploads/gray-ridge.png',
     alt: 'Brand 5 logo'
   }
 ];

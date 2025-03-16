@@ -13,25 +13,25 @@ import Autoplay from "embla-carousel-autoplay";
 
 const productShowcase = [
   {
-    src: "/lovable-uploads/fae6630c-3ee6-4d44-815d-6e97e456cc36.png",
+    src: "lovable-uploads/fae6630c-3ee6-4d44-815d-6e97e456cc36.png",
     alt: "Natural One 100% natural juice beverages",
     title: "Natural One",
     description: "Premium 100% natural juice beverages"
   },
   {
-    src: "/lovable-uploads/e364d746-d5ba-49f8-b29f-9c65864036bf.png",
+    src: "lovable-uploads/e364d746-d5ba-49f8-b29f-9c65864036bf.png",
     alt: "Happy Wolf snack bars variety pack",
     title: "Happy Wolf",
     description: "Nutritious snack bars for on-the-go"
   },
   {
-    src: "/lovable-uploads/5aaf7f3b-b15c-4098-a6aa-a26c3c089c75.png",
+    src: "lovable-uploads/5aaf7f3b-b15c-4098-a6aa-a26c3c089c75.png",
     alt: "Zaaki Akawi soft unripened cheese",
     title: "Zaaki Akawi",
     description: "Traditional soft unripened cheese"
   },
   {
-    src: "/lovable-uploads/9bc32d2d-5566-464b-b4ba-b1b59a4bdc9a.png",
+    src: "lovable-uploads/9bc32d2d-5566-464b-b4ba-b1b59a4bdc9a.png",
     alt: "Mr. Brownie rich, moist and fluffy brownies",
     title: "Mr. Brownie",
     description: "Rich, moist gourmet brownies"

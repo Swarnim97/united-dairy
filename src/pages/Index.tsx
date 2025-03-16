@@ -9,7 +9,7 @@ import BrandTicker from '@/components/BrandTicker';
 const featuredProducts = [
   {
     id: "fruit-loops",
-    image: "/lovable-uploads/orange.png",
+    image: "lovable-uploads/orange.png",
     name: "NOJ Orange",
     price: 5.54,
     originalPrice: null,
@@ -21,7 +21,7 @@ const featuredProducts = [
   },
   {
     id: "stewing-beef",
-    image: "/lovable-uploads/blondies.png",
+    image: "lovable-uploads/blondies.png",
     name: "Mr Brownie Blondie",
     price: 4.99,
     originalPrice: 5.50,
@@ -32,7 +32,7 @@ const featuredProducts = [
   },
   {
     id: "orange-juice",
-    image: "/lovable-uploads/galactic.png",
+    image: "lovable-uploads/galactic.png",
     name: "Mr Brownie Galactic",
     price: 4.99,
     originalPrice: 5.50,
@@ -43,7 +43,7 @@ const featuredProducts = [
   },
   {
     id: "chicken-thigh",
-    image: "/lovable-uploads/guava.png",
+    image: "lovable-uploads/guava.png",
     name: "NOJ Guava",
     price: 4.99,
     originalPrice: null,
@@ -55,7 +55,7 @@ const featuredProducts = [
   },
   {
     id: "cabbage",
-    image: "/lovable-uploads/brownie-choco.png",
+    image: "lovable-uploads/brownie-choco.png",
     name: "Mr Brownie Chocolate",
     price: 4.99,
     originalPrice: 5.50,
@@ -66,7 +66,7 @@ const featuredProducts = [
   },
   {
     id: "rice-stick",
-    image: "/lovable-uploads/mango.png",
+    image: "lovable-uploads/mango.png",
     name: "NOJ Mango",
     price: 4.99,
     originalPrice: null,
@@ -82,7 +82,7 @@ const featuredProducts = [
 const bestSellers = [
   {
     id: "pitted-dates",
-    image: "/lovable-uploads/dates.png",
+    image: "lovable-uploads/dates.png",
     name: "Pitted Dates",
     price: 6.49,
     originalPrice: 7.50,
@@ -93,7 +93,7 @@ const bestSellers = [
   },
   {
     id: "coffee-beans",
-    image: "/lovable-uploads/coffee.png",
+    image: "lovable-uploads/coffee.png",
     name: "Organic Coffee Beans, Dark Roast",
     price: 12.99,
     originalPrice: 14.99,
@@ -105,7 +105,7 @@ const bestSellers = [
   },
   {
     id: "olive-oil",
-    image: "/lovable-uploads/olive-oil.png",
+    image: "lovable-uploads/olive-oil.png",
     name: "Extra Virgin Olive Oil",
     price: 17.99,
     originalPrice: 19.99,
@@ -117,7 +117,7 @@ const bestSellers = [
   },
   {
     id: "almonds",
-    image: "/lovable-uploads/almonds.png",
+    image: "lovable-uploads/almonds.png",
     name: "Whole Natural Almonds",
     price: 14.49,
     originalPrice: 16.99,
@@ -128,7 +128,7 @@ const bestSellers = [
   },
   {
     id: "paper-towels",
-    image: "/lovable-uploads/towel.png",
+    image: "lovable-uploads/towel.png",
     name: "Bounty Towels, 12-pack",
     price: 19.99,
     originalPrice: 22.99,
@@ -139,7 +139,7 @@ const bestSellers = [
   },
   {
     id: "rotisserie-chicken",
-    image: "/lovable-uploads/chicken.png",
+    image: "lovable-uploads/chicken.png",
     name: "Rotisserie Chicken",
     price: 7.99,
     description: "Hot & Fresh",

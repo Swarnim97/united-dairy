@@ -62,7 +62,7 @@ const Navbar = () => {
   className="text-2xl font-bold font-display tracking-tight"
 >
   <img 
-    src="/lovable-uploads/logo.png" 
+    src="lovable-uploads/logo.png" 
     alt="Brand Logo" 
     className="h-20 w-auto" 
     style={{ filter: "brightness(0) invert(29%) sepia(56%) saturate(1552%) hue-rotate(196deg) brightness(93%) contrast(89%)" }}
