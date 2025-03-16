@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { 
-  Menu, X, ChevronDown, Home, ShoppingBag, 
+import {
+  Menu, X, ChevronDown, Home, ShoppingBag,
   Briefcase, Users, Mail, UserPlus, LogIn
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, getAssetUrl } from '@/lib/utils';
 
 const navLinks = [
   { name: 'Home', href: '/', icon: Home },
@@ -48,7 +48,7 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <header 
+    <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled ? "bg-white/90 backdrop-blur-md shadow-elegant" : "bg-transparent"
@@ -56,18 +56,18 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4">
         <nav className="flex items-center justify-between py-4">
-{/* Logo */}
-<Link 
-  to="/" 
-  className="text-2xl font-bold font-display tracking-tight"
->
-  <img 
-    src="lovable-uploads/logo.png" 
-    alt="Brand Logo" 
-    className="h-20 w-auto" 
-    style={{ filter: "brightness(0) invert(29%) sepia(56%) saturate(1552%) hue-rotate(196deg) brightness(93%) contrast(89%)" }}
-  />
-</Link>
+          {/* Logo */}
+          <Link
+            to="/"
+            className="text-2xl font-bold font-display tracking-tight"
+          >
+            <img
+              src={getAssetUrl("lovable-uploads/logo.png")}
+              alt="Brand Logo"
+              className="h-20 w-auto"
+              style={{ filter: "brightness(0) invert(29%) sepia(56%) saturate(1552%) hue-rotate(196deg) brightness(93%) contrast(89%)" }}
+            />
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
@@ -127,8 +127,8 @@ const Navbar = () => {
       >
         <div className="flex h-full flex-col overflow-y-auto">
           <div className="flex items-center justify-between p-4">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               onClick={() => setIsMenuOpen(false)}
               className="text-2xl font-bold font-display tracking-tight"
             >

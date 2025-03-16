@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Heart, ShoppingCart, Check, Star, ChevronDown, ChevronUp } from 'lucide-react';
 import Layout from '@/components/Layout';
+import { getAssetUrl } from '@/lib/utils';
 
 // Product data
 const naturalOneProducts = [
@@ -178,7 +179,7 @@ const NaturalOneProductDetail = () => {
             <div className="animate-fade-in">
               <div className="bg-white rounded-lg p-8 flex items-center justify-center shadow-elegant h-full">
                 <img
-                  src={product.image}
+                  src={getAssetUrl(product.image)}
                   alt={product.name}
                   className="max-h-96 object-contain"
                 />

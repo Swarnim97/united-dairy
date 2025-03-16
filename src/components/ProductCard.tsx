@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { ShoppingCart, Info } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, getAssetUrl } from '@/lib/utils';
 import { useToast } from '@/components/ui/use-toast';
 
 interface ProductCardProps {
@@ -47,7 +47,7 @@ const ProductCard = ({ id, name, price, image, category }: ProductCardProps) => 
           )}
         >
           <img
-            src={image}
+            src={getAssetUrl(image)}
             alt={name}
             className={cn(
               "h-full w-full object-cover transition-transform duration-500",

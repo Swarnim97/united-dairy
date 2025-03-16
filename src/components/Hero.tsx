@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
+import { cn, getAssetUrl } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
 
 const productShowcase = [
@@ -63,7 +63,7 @@ const Hero = () => {
                   {/* Product Image with Gradient Overlay */}
                   <div className="relative w-full">
                     <img 
-                      src={product.src} 
+                      src={getAssetUrl(product.src)}
                       alt={product.alt}
                       className="w-full h-auto object-cover rounded-lg"
                     />

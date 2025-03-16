@@ -1,3 +1,4 @@
+import { getAssetUrl } from '@/lib/utils';
 import { Link } from 'react-router-dom';
 
 interface CategoryCardProps {

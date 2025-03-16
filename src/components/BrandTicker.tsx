@@ -1,3 +1,4 @@
+import { getAssetUrl } from '@/lib/utils';
 import React from 'react';
 
 // Sample brand logos - replace with your actual logo paths
@@ -55,7 +56,7 @@ const BrandTicker: React.FC = () => {
                 <div key={`ticker-1-${index}`} className="flex-shrink-0 mx-6">
                   {brand.logo ? (
                     <img 
-                      src={brand.logo} 
+                      src={getAssetUrl(brand.logo)}
                       alt={brand.alt} 
                       className="h-12 sm:h-16 w-auto object-contain"
                     />
@@ -72,7 +73,7 @@ const BrandTicker: React.FC = () => {
                 <div key={`ticker-2-${index}`} className="flex-shrink-0 mx-6">
                   {brand.logo ? (
                     <img 
-                      src={brand.logo} 
+                      src={getAssetUrl(brand.logo)} 
                       alt={brand.alt} 
                       className="h-12 sm:h-16 w-auto object-contain"
                     />

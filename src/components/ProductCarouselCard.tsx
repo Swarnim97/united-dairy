@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Eye } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { getAssetUrl } from '@/lib/utils';
 
 interface ProductCardProps {
   id: string;
@@ -33,7 +34,7 @@ const ProductCarouselCard = ({
       {/* Product Image */}
       <div className="relative aspect-square overflow-hidden">
         <img 
-          src={image} 
+          src={getAssetUrl(image)} 
           alt={name} 
           className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
         />

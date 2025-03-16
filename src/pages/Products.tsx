@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Tag, Heart, ShoppingCart } from 'lucide-react';
+import { getAssetUrl } from '@/lib/utils';
 
 // All available products combined
 const allProducts = [
@@ -180,7 +181,7 @@ const ProductCard = ({ product }) => {
         className="block aspect-square bg-white rounded-lg p-4 flex items-center justify-center mb-4 relative overflow-hidden"
       >
         <img
-          src={product.image}
+          src={getAssetUrl(product.image)}
           alt={product.name}
           className="max-h-48 object-contain group-hover:scale-105 transition-transform"
         />
