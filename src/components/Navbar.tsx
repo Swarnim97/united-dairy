@@ -56,13 +56,18 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4">
         <nav className="flex items-center justify-between py-4">
-          {/* Logo */}
-          <Link 
-            to="/" 
-            className="text-2xl font-bold font-display tracking-tight"
-          >
-            Brand
-          </Link>
+{/* Logo */}
+<Link 
+  to="/" 
+  className="text-2xl font-bold font-display tracking-tight"
+>
+  <img 
+    src="/lovable-uploads/logo.png" 
+    alt="Brand Logo" 
+    className="h-20 w-auto" 
+    style={{ filter: "brightness(0) invert(29%) sepia(56%) saturate(1552%) hue-rotate(196deg) brightness(93%) contrast(89%)" }}
+  />
+</Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
