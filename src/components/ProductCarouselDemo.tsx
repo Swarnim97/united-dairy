@@ -1,15 +1,11 @@
-import { Link } from 'react-router-dom';
-import Layout from '@/components/Layout';
-import Hero from '@/components/Hero';
-import PromotionalOffer from '@/components/PromotionalOffer';
-import ShopByCategory from '@/components/ShopByCategory';
-import ProductCarousel from '@/components/ProductCarousel';
-import BrandTicker from '@/components/BrandTicker';
+import React from 'react';
+import ProductCarousel from './ProductCarousel';
 
+// Sample data for Featured Products
 const featuredProducts = [
   {
     id: "fruit-loops",
-    image: "/lovable-uploads/fruit-loops.png",
+    image: "/lovable-uploads/froot-loops.jpg",
     name: "Fruit by the Foot Fruit Flavoured Snacks, Variety Pack",
     price: 2.50,
     originalPrice: null,
@@ -21,7 +17,7 @@ const featuredProducts = [
   },
   {
     id: "stewing-beef",
-    image: "/lovable-uploads/beef.png",
+    image: "/lovable-uploads/beef.jpg",
     name: "Stewing Beef, Club Pack",
     price: 20.41,
     originalPrice: 22.46,
@@ -32,7 +28,7 @@ const featuredProducts = [
   },
   {
     id: "orange-juice",
-    image: "/lovable-uploads/juice.png",
+    image: "/lovable-uploads/orange-juice.jpg",
     name: "Pulp Free Orange Juice",
     price: 3.49,
     originalPrice: 5.00,
@@ -44,18 +40,18 @@ const featuredProducts = [
   },
   {
     id: "chicken-thigh",
-    image: "/lovable-uploads/coffee.png",
+    image: "/lovable-uploads/chicken.jpg",
     name: "Free From Chicken Thigh, Boneless, Skinless, Club Pack",
     price: 17.40,
     originalPrice: 26.11,
-    description: "Simply Orange",
+    description: "President's Choice",
     unitPrice: "$16.41/kg $6.99/lb",
     badge: "Prepared in Canada",
     saveAmount: "$8.71"
   },
   {
     id: "cabbage",
-    image: "/lovable-uploads/cabbage.png",
+    image: "/lovable-uploads/cabbage.jpg",
     name: "Cabbage, Green",
     price: 3.70,
     originalPrice: 4.77,
@@ -65,7 +61,7 @@ const featuredProducts = [
   },
   {
     id: "rice-stick",
-    image: "/lovable-uploads/rice.png",
+    image: "/lovable-uploads/rice.jpg",
     name: "Longmoon Rice Stick Vermicelli",
     price: 1.49,
     originalPrice: 1.99,
@@ -81,7 +77,7 @@ const featuredProducts = [
 const bestSellers = [
   {
     id: "pitted-dates",
-    image: "/lovable-uploads/dates.png",
+    image: "/lovable-uploads/dates.jpg",
     name: "Pitted Dates",
     price: 6.49,
     originalPrice: 7.50,
@@ -92,7 +88,7 @@ const bestSellers = [
   },
   {
     id: "coffee-beans",
-    image: "/lovable-uploads/coffee.png",
+    image: "/lovable-uploads/coffee.jpg",
     name: "Organic Coffee Beans, Dark Roast",
     price: 12.99,
     originalPrice: 14.99,
@@ -104,7 +100,7 @@ const bestSellers = [
   },
   {
     id: "olive-oil",
-    image: "/lovable-uploads/olive-oil.png",
+    image: "/lovable-uploads/olive-oil.jpg",
     name: "Extra Virgin Olive Oil",
     price: 17.99,
     originalPrice: 19.99,
@@ -116,7 +112,7 @@ const bestSellers = [
   },
   {
     id: "almonds",
-    image: "/lovable-uploads/almonds.png",
+    image: "/lovable-uploads/almonds.jpg",
     name: "Whole Natural Almonds",
     price: 14.49,
     originalPrice: 16.99,
@@ -127,8 +123,8 @@ const bestSellers = [
   },
   {
     id: "paper-towels",
-    image: "/lovable-uploads/towel.png",
-    name: "Bounty Towels, 12-pack",
+    image: "/lovable-uploads/paper-towels.jpg",
+    name: "Create-A-Size Paper Towels, 12-pack",
     price: 19.99,
     originalPrice: 22.99,
     description: "Kirkland Signature",
@@ -138,7 +134,7 @@ const bestSellers = [
   },
   {
     id: "rotisserie-chicken",
-    image: "/lovable-uploads/chicken.png",
+    image: "/lovable-uploads/rotisserie-chicken.jpg",
     name: "Rotisserie Chicken",
     price: 7.99,
     description: "Hot & Fresh",
@@ -149,55 +145,13 @@ const bestSellers = [
   }
 ];
 
-const Index = () => {
+const ProductCarouselsDemo = () => {
   return (
-    <Layout>
-      {/* Hero Section (includes the carousel) */}
-      <Hero />
-      
-      {/* Promotional Offer */}
-      <PromotionalOffer />
-      
-      {/* Featured Products Carousel */}
+    <>
       <ProductCarousel title="Featured Products" products={featuredProducts} />
-
-      <BrandTicker/>
-      
-      {/* Shop By Category */}
-      <ShopByCategory />
-      
-      {/* Best Sellers Carousel */}
       <ProductCarousel title="Best Sellers" products={bestSellers} />
-      
-      {/* CTA Section */}
-      <section className="bg-[#2a6db6] py-24 text-white">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6">
-              Ready to streamline your business supplies?
-            </h2>
-            <p className="text-lg mb-8 text-white/90">
-              Join thousands of businesses who trust us with their wholesale needs.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                to="/products"
-                className="w-full sm:w-auto rounded-full bg-white px-6 py-3 text-sm font-medium text-[#2a6db6] hover:bg-white/90 shadow-button button-transition"
-              >
-                View Products
-              </Link>
-              <Link
-                to="/contact"
-                className="w-full sm:w-auto rounded-full bg-[#2a6db6] border border-white/30 px-6 py-3 text-sm font-medium text-white hover:bg-[#2a6db6]/90 button-transition"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </Layout>
+    </>
   );
 };
 
-export default Index;
+export default ProductCarouselsDemo;

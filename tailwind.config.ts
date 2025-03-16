@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -113,6 +112,11 @@ export default {
 				float: {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-5px)' }
+				},
+				// Marquee animation for the brand ticker
+				marquee: {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-100%)' }
 				}
 			},
 			animation: {
@@ -125,7 +129,9 @@ export default {
 				'slide-in-left': 'slide-in-left 0.4s ease-out',
 				'slide-in-right': 'slide-in-right 0.4s ease-out',
 				'scale-in': 'scale-in 0.3s ease-out',
-				'float': 'float 6s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite',
+				// Marquee animation for the brand ticker
+				'marquee': 'marquee 30s linear infinite'
 			},
 			boxShadow: {
 				'elegant': '0 2px 10px rgba(0, 0, 0, 0.05)',

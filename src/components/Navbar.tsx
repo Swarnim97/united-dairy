@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -55,7 +54,7 @@ const Navbar = () => {
         scrolled ? "bg-white/90 backdrop-blur-md shadow-elegant" : "bg-transparent"
       )}
     >
-      <div className="layout-grid">
+      <div className="max-w-7xl mx-auto px-4">
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link 
@@ -74,8 +73,8 @@ const Navbar = () => {
                 className={cn(
                   "text-sm font-medium button-transition",
                   location.pathname === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-primary"
+                    ? "text-[#2a6db6]"
+                    : "text-muted-foreground hover:text-[#2a6db6]"
                 )}
               >
                 {link.name}
@@ -87,13 +86,13 @@ const Navbar = () => {
           <div className="hidden md:flex md:items-center md:space-x-4">
             <Link
               to="/signin"
-              className="text-sm font-medium text-muted-foreground hover:text-primary button-transition"
+              className="text-sm font-medium text-muted-foreground hover:text-[#2a6db6] button-transition"
             >
               Sign In
             </Link>
             <Link
               to="/signup"
-              className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-white shadow-button hover:bg-primary/90 button-transition"
+              className="rounded-full bg-[#2a6db6] px-4 py-2 text-sm font-medium text-white shadow-button hover:bg-[#2a6db6]/90 button-transition"
             >
               Create Account
             </Link>
@@ -148,7 +147,7 @@ const Navbar = () => {
                   className={cn(
                     "flex items-center space-x-2 text-lg font-medium",
                     location.pathname === link.href
-                      ? "text-primary"
+                      ? "text-[#2a6db6]"
                       : "text-muted-foreground"
                   )}
                 >
@@ -163,7 +162,7 @@ const Navbar = () => {
               <Link
                 to="/signin"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center justify-center space-x-2 rounded-lg border border-input bg-background py-2 text-sm font-medium"
+                className="flex items-center justify-center space-x-2 rounded-full border border-input bg-background py-2 text-sm font-medium"
               >
                 <LogIn className="h-4 w-4" />
                 <span>Sign In</span>
@@ -171,7 +170,7 @@ const Navbar = () => {
               <Link
                 to="/signup"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center justify-center space-x-2 rounded-lg bg-primary py-2 text-sm font-medium text-white"
+                className="flex items-center justify-center space-x-2 rounded-full bg-[#2a6db6] py-2 text-sm font-medium text-white"
               >
                 <UserPlus className="h-4 w-4" />
                 <span>Create Account</span>
