@@ -10,16 +10,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold">Brand</h3>
+            <h3 className="text-lg font-bold">United Dairy and Grocers</h3>
             <p className="text-sm text-muted-foreground">
-              Beautifully designed products for every space. Premium quality with minimalist aesthetic.
+              We've spent 40 years building relationships with top brands to provide exceptional service and quality products at the best prices.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-muted-foreground hover:text-[#2a6db6] button-transition" aria-label="Instagram">
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-[#2a6db6] button-transition" aria-label="Twitter">
-                <Twitter className="h-5 w-5" />
               </a>
               <a href="#" className="text-muted-foreground hover:text-[#2a6db6] button-transition" aria-label="Facebook">
                 <Facebook className="h-5 w-5" />
@@ -62,34 +59,34 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Business Solutions */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Legal</h3>
+            <h3 className="text-lg font-bold mb-4">Business Solutions</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition">
-                  Terms of Service
-                </a>
+                <Link to="/services" className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition">
+                  Wholesale Distribution
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition">
-                  Privacy Policy
-                </a>
+                <Link to="/services" className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition">
+                  Dairy Products
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition">
-                  Cookie Policy
-                </a>
+                <Link to="/services" className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition">
+                  Grocery Supply
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition">
-                  Shipping Policy
-                </a>
+                <Link to="/services" className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition">
+                  Natural & Ethnic Market
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition">
-                  Returns & Exchanges
-                </a>
+                <Link to="/contact" className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition">
+                  Request a Quote
+                </Link>
               </li>
             </ul>
           </div>
@@ -101,25 +98,27 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-muted-foreground" />
                 <span className="text-sm text-muted-foreground">
-                  123 Design Street, Creative City, 10001
+                  145 Sun Pac Blvd<br />
+                  Brampton, Ontario L6S 5Z6<br />
+                  Canada
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-muted-foreground" />
                 <a
-                  href="tel:+11234567890"
+                  href="tel:9057932448"
                   className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition"
                 >
-                  +1 (123) 456-7890
+                  905-793-2448
                 </a>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-muted-foreground" />
                 <a
-                  href="mailto:hello@brand.com"
+                  href="mailto:info@uniteddairy.com"
                   className="text-sm text-muted-foreground hover:text-[#2a6db6] button-transition"
                 >
-                  hello@brand.com
+                  info@uniteddairy.com
                 </a>
               </li>
             </ul>
@@ -128,17 +127,17 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-xs text-muted-foreground text-center md:text-left">
-            © {currentYear} Brand. All rights reserved.
+            © {currentYear} United Dairy and Grocers. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0 flex items-center">
             <Link
-              to="/signup"
+              to="/contact"
               className="rounded-full bg-[#2a6db6] px-4 py-2 text-xs font-medium text-white shadow-button hover:bg-[#2a6db6]/90 button-transition mr-4"
             >
-              Create Account
+              Contact Us
             </Link>
             <p className="text-xs text-muted-foreground">
-              Designed with precision and care.
+              Serving businesses across Canada
             </p>
           </div>
         </div>

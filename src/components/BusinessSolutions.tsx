@@ -39,15 +39,6 @@ const BusinessSolutions = () => {
             </div>
           ))}
         </div>
-        
-        <div className="mt-12 text-center">
-          <Link 
-            to="/products" 
-            className="inline-flex items-center text-primary font-medium link-underline"
-          >
-            Explore our services <ArrowRight className="ml-1 h-4 w-4" />
-          </Link>
-        </div>
       </div>
     </section>
   );

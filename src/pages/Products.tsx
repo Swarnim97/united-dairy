@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import ProductCard from '@/components/ProductCard';
@@ -169,29 +168,29 @@ const Products = () => {
     <Layout>
       <div className="pt-20 pb-16 md:pb-24">
         {/* Hero */}
-        <div className="bg-secondary py-16 md:py-24">
-          <div className="layout-grid">
-            <div className="max-w-2xl mx-auto text-center">
-              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+        <div className="bg-[#2a6db6]/10 py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 animate-fade-in">
                 Our Products
               </h1>
-              <p className="text-lg text-muted-foreground">
-                Browse our curated collection of premium design products
+              <p className="text-lg text-muted-foreground animate-slide-in-up">
+                Browse our curated collection of premium grocery and dairy products
               </p>
             </div>
           </div>
         </div>
         
         {/* Filter and Products */}
-        <div className="layout-grid mt-8">
+        <div className="max-w-7xl mx-auto px-4 mt-8">
           {/* Category Filters */}
           <div className="flex items-center justify-center flex-wrap gap-2 mb-8">
             <button
               onClick={() => setSelectedCategory(null)}
               className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${
                 selectedCategory === null
-                  ? 'bg-primary text-white'
-                  : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                  ? 'bg-[#2a6db6] text-white'
+                  : 'bg-[#2a6db6]/10 text-secondary-foreground hover:bg-[#2a6db6]/20'
               }`}
             >
               All
@@ -202,8 +201,8 @@ const Products = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${
                   selectedCategory === category
-                    ? 'bg-primary text-white'
-                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                    ? 'bg-[#2a6db6] text-white'
+                    : 'bg-[#2a6db6]/10 text-secondary-foreground hover:bg-[#2a6db6]/20'
                 }`}
               >
                 {category}
@@ -228,6 +227,24 @@ const Products = () => {
                 />
               </div>
             ))}
+          </div>
+        </div>
+        
+        {/* CTA Section */}
+        <div className="bg-[#2a6db6] mt-24 py-16 text-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl font-bold sm:text-3xl mb-4">Partner With United</h2>
+              <p className="mb-8">
+                Looking for a reliable distributor for your grocery and dairy needs in the Greater Toronto Area?
+              </p>
+              <a 
+                href="/contact" 
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-[#2a6db6] hover:bg-white/90 shadow-button button-transition"
+              >
+                Contact Us
+              </a>
+            </div>
           </div>
         </div>
       </div>

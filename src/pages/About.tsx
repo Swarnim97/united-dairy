@@ -1,26 +1,25 @@
-
 import Layout from '@/components/Layout';
 
 const About = () => {
   return (
     <Layout>
-      <div className="pt-20 pb-16 md:pb-24">
+      <div className="pb-16 md:pb-24 mt-20">
         {/* Hero */}
-        <div className="bg-secondary py-16 md:py-24">
-          <div className="layout-grid">
+        <div className="bg-[#2a6db6]/10 py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 animate-fade-in">
-                About Us
+                About United Dairy and Grocers
               </h1>
               <p className="text-lg text-muted-foreground animate-slide-in-up">
-                We design and curate products with a focus on simplicity, elegance, and functionality.
+                Building relationships with top brands for over 40 years
               </p>
             </div>
           </div>
         </div>
         
         {/* Our Story */}
-        <div className="layout-grid mt-16">
+        <div className="max-w-7xl mx-auto px-4 mt-16">
           <div className="grid gap-12 md:grid-cols-2 items-center">
             <div className="animate-slide-in-left">
               <div className="relative h-[500px] w-full overflow-hidden rounded-2xl">
@@ -36,13 +35,13 @@ const About = () => {
               <h2 className="text-2xl font-bold mb-6">Our Story</h2>
               <div className="space-y-4">
                 <p>
-                  Founded in 2010, our brand began with a simple mission: to create beautifully designed products that enhance everyday life. We believe that good design should be accessible, functional, and timeless.
+                  At United Dairy and Grocers, we have spent the last 40 years building relationships with the top brands in order to provide our customers with exceptional service, and quality products at the best prices.
                 </p>
                 <p>
-                  Our team of designers and craftspeople work together to create pieces that strike the perfect balance between form and function. Every product in our collection is thoughtfully considered, from the materials we use to the smallest details of the design.
+                  We service all types of customers within Canada, and across the Greater Toronto Area, such as independent grocery & large grocery chains, manufacturers, restaurants, banquet halls, hotels, bakeries, and more!
                 </p>
                 <p>
-                  What started as a small studio with just three designers has grown into a global brand with a presence in over 20 countries. Despite our growth, we remain committed to our founding principles of quality, sustainability, and thoughtful design.
+                  At United, we build National and international Brands with an emphasis on the Natural, and the ethnic Market. Our commitment to quality and service has made us a trusted partner for businesses throughout the region.
                 </p>
               </div>
             </div>
@@ -50,8 +49,8 @@ const About = () => {
         </div>
         
         {/* Values */}
-        <div className="bg-secondary mt-24 py-16">
-          <div className="layout-grid">
+        <div className="bg-gray-100 mt-24 py-16">
+          <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-2xl font-bold sm:text-3xl">Our Values</h2>
               <p className="mt-4 text-muted-foreground">The principles that guide everything we do</p>
@@ -59,17 +58,17 @@ const About = () => {
             
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { title: 'Quality', description: 'We never compromise on materials or craftsmanship.' },
-                { title: 'Simplicity', description: 'We believe in clean design that stands the test of time.' },
-                { title: 'Functionality', description: 'Our products are designed to solve real problems beautifully.' },
-                { title: 'Sustainability', description: 'We strive to minimize our environmental impact at every step.' }
+                { title: 'Quality', description: 'We partner with top brands to deliver exceptional products.' },
+                { title: 'Service', description: 'We provide responsive, reliable service to all our customers.' },
+                { title: 'Value', description: 'We offer competitive prices without compromising on quality.' },
+                { title: 'Relationships', description: 'We build lasting partnerships with brands and customers alike.' }
               ].map((value, index) => (
                 <div 
                   key={index} 
                   className="bg-white p-6 rounded-lg shadow-elegant animate-slide-in-up"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <h3 className="text-lg font-semibold mb-3">{value.title}</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-[#2a6db6]">{value.title}</h3>
                   <p className="text-muted-foreground">{value.description}</p>
                 </div>
               ))}
@@ -77,47 +76,22 @@ const About = () => {
           </div>
         </div>
         
-        {/* Team */}
-        <div className="layout-grid mt-24">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold sm:text-3xl">Our Team</h2>
-            <p className="mt-4 text-muted-foreground">Meet the talented people behind our products</p>
-          </div>
-          
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                name: 'Alex Morgan',
-                role: 'Founder & Creative Director',
-                image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YnVzaW5lc3MlMjBwZXJzb258ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
-              },
-              {
-                name: 'Sam Taylor',
-                role: 'Head of Design',
-                image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YnVzaW5lc3MlMjBwZXJzb258ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
-              },
-              {
-                name: 'Jordan Lee',
-                role: 'Product Development Lead',
-                image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YnVzaW5lc3MlMjBwZXJzb258ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
-              }
-            ].map((person, index) => (
-              <div 
-                key={index} 
-                className="flex flex-col items-center text-center animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+
+        {/* CTA Section */}
+        <div className="bg-[#2a6db6] mt-24 py-16 text-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl font-bold sm:text-3xl mb-4">Partner With United</h2>
+              <p className="mb-8">
+                Looking for a reliable distributor for your grocery and dairy needs in the Greater Toronto Area?
+              </p>
+              <a 
+                href="/contact" 
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-[#2a6db6] hover:bg-white/90 shadow-button button-transition"
               >
-                <div className="mb-4 h-48 w-48 overflow-hidden rounded-full">
-                  <img
-                    src={person.image}
-                    alt={person.name}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <h3 className="text-lg font-semibold">{person.name}</h3>
-                <p className="text-muted-foreground">{person.role}</p>
-              </div>
-            ))}
+                Contact Us
+              </a>
+            </div>
           </div>
         </div>
       </div>
