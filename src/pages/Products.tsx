@@ -1,168 +1,266 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
-import ProductCard from '@/components/ProductCard';
+import { Tag, Heart, ShoppingCart } from 'lucide-react';
 
-// Sample product data
-const sampleProducts = [
+// All available products combined
+const allProducts = [
+  // Natural One Juices
   {
-    id: 1,
-    name: 'Minimalist Ceramic Vase',
-    price: 49.99,
-    image: 'https://images.unsplash.com/photo-1602816681424-c488970efab9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWluaW1hbCUyMHZhc2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-    category: 'Decor'
+    id: "natural-one-orange",
+    name: "NOJ Orange",
+    description: "Natural One",
+    price: 5.54,
+    originalPrice: null,
+    image: "/lovable-uploads/orange.png",
+    unit: "1.5 L",
+    unitPrice: "$0.55/100ml",
+    badge: "Hit of the Month",
+    saveAmount: null,
+    category: "Beverages"
   },
   {
-    id: 2,
-    name: 'Marble Coffee Table',
-    price: 299.99,
-    image: 'https://images.unsplash.com/photo-1634712282287-14ed57b9cc89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWluaW1hbCUyMHRhYmxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-    category: 'Furniture'
+    id: "natural-one-guava",
+    name: "NOJ Guava",
+    description: "Natural One",
+    price: 4.99,
+    originalPrice: null,
+    image: "/lovable-uploads/guava.png",
+    unit: "900 ML",
+    unitPrice: "$0.55/100ml",
+    badge: "Hit of the Month",
+    saveAmount: null,
+    category: "Beverages"
   },
   {
-    id: 3,
-    name: 'Scandinavian Wooden Chair',
-    price: 149.99,
-    image: 'https://images.unsplash.com/photo-1519947486511-46149fa0a254?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1pbmltYWwlMjBjaGFpcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-    category: 'Furniture'
+    id: "natural-one-mango",
+    name: "NOJ Mango",
+    description: "Natural One",
+    price: 4.99,
+    originalPrice: null,
+    image: "/lovable-uploads/mango.png",
+    unit: "900 ML",
+    unitPrice: "$0.55/100ml",
+    badge: "Hit of the Month",
+    saveAmount: null,
+    category: "Beverages"
+  },
+  
+  // Mr. Brownie Products
+  {
+    id: "mr-brownie-blondie",
+    name: "Mr Brownie Blondie",
+    price: 4.99,
+    originalPrice: 5.50,
+    image: "/lovable-uploads/blondies.png",
+    unit: null,
+    unitPrice: "$0.62/unit",
+    badge: null,
+    saveAmount: "$0.50",
+    category: "Snacks"
   },
   {
-    id: 4,
-    name: 'Linen Throw Pillow',
-    price: 39.99,
-    image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWluaW1hbCUyMHBpbGxvd3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-    category: 'Textile'
+    id: "mr-brownie-galactic",
+    name: "Mr Brownie Galactic",
+    price: 4.99,
+    originalPrice: 5.50,
+    image: "/lovable-uploads/galactic.png",
+    unit: null,
+    unitPrice: "$0.62/unit",
+    badge: null,
+    saveAmount: "$0.50",
+    category: "Snacks"
   },
   {
-    id: 5,
-    name: 'Modern Desk Lamp',
-    price: 79.99,
-    image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWluaW1hbCUyMGxhbXB8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-    category: 'Lighting'
+    id: "mr-brownie-chocolate",
+    name: "Mr Brownie Chocolate",
+    price: 4.99,
+    originalPrice: 5.50,
+    image: "/lovable-uploads/brownie-choco.png",
+    unit: null,
+    unitPrice: "$0.62/unit",
+    badge: null,
+    saveAmount: "$0.50",
+    category: "Snacks"
+  },
+  
+  // Best Sellers
+  {
+    id: "pitted-dates",
+    name: "Pitted Dates",
+    price: 6.49,
+    originalPrice: 7.50,
+    image: "/lovable-uploads/dates.png",
+    unit: "907 g",
+    unitPrice: "$0.72/100g",
+    badge: null,
+    saveAmount: "$1.01",
+    category: "Pantry"
   },
   {
-    id: 6,
-    name: 'Handcrafted Wall Art',
-    price: 129.99,
-    image: 'https://images.unsplash.com/photo-1582966839614-8164255abf2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWluaW1hbCUyMGFydHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-    category: 'Art'
+    id: "coffee-beans",
+    name: "Organic Coffee Beans, Dark Roast",
+    price: 12.99,
+    originalPrice: 14.99,
+    description: "Kirkland Signature",
+    image: "/lovable-uploads/coffee.png",
+    unit: "907 g",
+    unitPrice: "$1.43/100g",
+    badge: "Organic",
+    saveAmount: "$2.00",
+    category: "Coffee & Tea"
   },
   {
-    id: 7,
-    name: 'Premium Wool Rug',
-    price: 199.99,
-    image: 'https://images.unsplash.com/photo-1531895861205-9042b5403a4d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWluaW1hbCUyMHJ1Z3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-    category: 'Textile'
+    id: "olive-oil",
+    name: "Extra Virgin Olive Oil",
+    price: 17.99,
+    originalPrice: 19.99,
+    description: "Kirkland Signature",
+    image: "/lovable-uploads/olive-oil.png",
+    unit: "2 L",
+    unitPrice: "$0.90/100ml",
+    badge: "Imported",
+    saveAmount: "$2.00",
+    category: "Pantry"
   },
   {
-    id: 8,
-    name: 'Bamboo Storage Basket',
-    price: 59.99,
-    image: 'https://images.unsplash.com/photo-1605905337371-591af8044b66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWluaW1hbCUyMGJhc2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-    category: 'Storage'
+    id: "almonds",
+    name: "Whole Natural Almonds",
+    price: 14.49,
+    originalPrice: 16.99,
+    image: "/lovable-uploads/almonds.png",
+    unit: "1.36 kg",
+    unitPrice: "$1.07/100g",
+    badge: null,
+    saveAmount: "$2.50",
+    category: "Pantry"
   },
   {
-    id: 9,
-    name: 'Glass Pendant Light',
-    price: 89.99,
-    image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWluaW1hbCUyMHBlbmRhbnQlMjBsaWdodHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-    category: 'Lighting'
+    id: "paper-towels",
+    name: "Bounty Towels, 12-pack",
+    price: 19.99,
+    originalPrice: 22.99,
+    description: "Kirkland Signature",
+    image: "/lovable-uploads/towel.png",
+    unitPrice: "$1.67/roll",
+    badge: "Best Value",
+    saveAmount: "$3.00",
+    category: "Household"
   },
   {
-    id: 10,
-    name: 'Wooden Serving Tray',
-    price: 45.99,
-    image: 'https://images.unsplash.com/photo-1541456054-7a4d9559c1c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWluaW1hbCUyMHRyYXl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-    category: 'Kitchen'
-  },
-  {
-    id: 11,
-    name: 'Concrete Planter',
-    price: 34.99,
-    image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWluaW1hbCUyMHBsYW50ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-    category: 'Garden'
-  },
-  {
-    id: 12,
-    name: 'Walnut Bookshelf',
-    price: 249.99,
-    image: 'https://images.unsplash.com/photo-1515511624704-b3be465296ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bWluaW1hbCUyMGJvb2tzaGVsZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-    category: 'Furniture'
-  },
-  {
-    id: 13,
-    name: 'Cotton Throw Blanket',
-    price: 79.99,
-    image: 'https://images.unsplash.com/photo-1586774098851-1ce0122c3ac3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWluaW1hbCUyMGJsYW5rZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-    category: 'Textile'
-  },
-  {
-    id: 14,
-    name: 'Geometric Wall Clock',
-    price: 69.99,
-    image: 'https://images.unsplash.com/photo-1560174972-ae0c7dad45a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWluaW1hbCUyMGNsb2NrfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-    category: 'Decor'
-  },
-  {
-    id: 15,
-    name: 'Metal Floor Lamp',
-    price: 159.99,
-    image: 'https://images.unsplash.com/photo-1606170033648-5d55a3efd3d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bWluaW1hbCUyMGZsb29yJTIwbGFtcHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-    category: 'Lighting'
-  },
-  {
-    id: 16,
-    name: 'Glass Carafe Set',
-    price: 49.99,
-    image: 'https://images.unsplash.com/photo-1609108585228-7eb901e9d195?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWluaW1hbCUyMGNhcmFmZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-    category: 'Kitchen'
-  },
-  {
-    id: 17,
-    name: 'Terrazzo Coasters',
-    price: 29.99,
-    image: 'https://images.unsplash.com/photo-1529186607619-44d4128b1735?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWluaW1hbCUyMGNvYXN0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-    category: 'Kitchen'
-  },
-  {
-    id: 18,
-    name: 'Leather Desk Pad',
-    price: 89.99,
-    image: 'https://images.unsplash.com/photo-1585314062604-1a357de8b000?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWluaW1hbCUyMGRlc2slMjBwYWR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-    category: 'Office'
+    id: "rotisserie-chicken",
+    name: "Rotisserie Chicken",
+    price: 7.99,
+    description: "Hot & Fresh",
+    image: "/lovable-uploads/chicken.png",
+    unit: "~1.2 kg",
+    unitPrice: "$6.66/kg",
+    badge: "Ready to Eat",
+    saveAmount: null,
+    category: "Fresh Foods"
   }
 ];
 
-// More products to make 9x9 grid (81 total)
-const generateMoreProducts = () => {
-  const products = [...sampleProducts];
-  
-  // Generate more products based on the sample ones until we have 81
-  while (products.length < 81) {
-    const template = sampleProducts[products.length % sampleProducts.length];
-    products.push({
-      id: products.length + 1,
-      name: `${template.name} - Edition ${Math.floor(products.length / 18) + 1}`,
-      price: template.price + (Math.random() * 10 - 5), // Slight price variation
-      image: template.image,
-      category: template.category
-    });
-  }
-  
-  return products;
+// Product Card Component
+const ProductCard = ({ product }) => {
+  return (
+    <div className="group bg-white rounded-lg overflow-hidden shadow-elegant p-4 h-full flex flex-col">
+      {/* Badge (if any) */}
+      {product.badge && (
+        <div className="absolute top-3 left-3 z-10">
+          <span className="inline-block px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded-full">
+            {product.badge}
+          </span>
+        </div>
+      )}
+      
+      {/* Product Image */}
+      <Link 
+        to={`/products/${product.id}`} 
+        className="block aspect-square bg-white rounded-lg p-4 flex items-center justify-center mb-4 relative overflow-hidden"
+      >
+        <img
+          src={product.image}
+          alt={product.name}
+          className="max-h-48 object-contain group-hover:scale-105 transition-transform"
+        />
+      </Link>
+      
+      {/* Product Details */}
+      <div className="flex-1 flex flex-col">
+        {product.description && (
+          <span className="text-xs text-muted-foreground mb-1">
+            {product.description}
+          </span>
+        )}
+        
+        <Link to={`/products/${product.id}`} className="hover:text-[#2a6db6] transition-colors">
+          <h3 className="font-medium text-lg mb-1 leading-tight">
+            {product.name}
+          </h3>
+        </Link>
+        
+        {product.unit && (
+          <p className="text-sm text-muted-foreground mb-1">
+            {product.unit}
+          </p>
+        )}
+        
+        {product.unitPrice && (
+          <p className="text-xs text-muted-foreground">
+            {product.unitPrice}
+          </p>
+        )}
+        
+        <div className="mt-auto pt-4 flex items-end justify-between">
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-[#2a6db6]">
+                ${product.price.toFixed(2)}
+              </span>
+              {product.originalPrice && (
+                <span className="text-sm text-muted-foreground line-through">
+                  ${product.originalPrice.toFixed(2)}
+                </span>
+              )}
+            </div>
+            
+            {product.saveAmount && (
+              <span className="text-xs text-red-600 font-medium">
+                Save {product.saveAmount}
+              </span>
+            )}
+          </div>
+          
+          <div className="flex gap-2">
+            <button 
+              className="w-8 h-8 flex items-center justify-center rounded-full text-muted-foreground hover:text-[#2a6db6] border border-gray-200 hover:border-[#2a6db6] transition-colors"
+              aria-label="Add to wishlist"
+            >
+              <Heart className="h-4 w-4" />
+            </button>
+            <button 
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-[#2a6db6] text-white hover:bg-[#2a6db6]/90 transition-colors"
+              aria-label="Add to cart"
+            >
+              <ShoppingCart className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const Products = () => {
-  const [products, setProducts] = useState(generateMoreProducts());
-  const [isLoading, setIsLoading] = useState(false);
-  
-  // Categories for filtering
-  const categories = Array.from(new Set(products.map(product => product.category)));
+  // Extract unique categories
+  const categories = Array.from(new Set(allProducts.map(product => product.category)));
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   
   // Filtering
   const filteredProducts = selectedCategory
-    ? products.filter(product => product.category === selectedCategory)
-    : products;
+    ? allProducts.filter(product => product.category === selectedCategory)
+    : allProducts;
   
   return (
     <Layout>
@@ -210,21 +308,25 @@ const Products = () => {
             ))}
           </div>
           
+          {/* Product Count */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-2">
+              <Tag className="h-5 w-5 text-muted-foreground" />
+              <span className="text-sm text-muted-foreground">
+                {filteredProducts.length} products
+              </span>
+            </div>
+          </div>
+          
           {/* Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            {filteredProducts.map((product) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {filteredProducts.map((product, index) => (
               <div 
                 key={product.id} 
                 className="animate-scale-in"
-                style={{ animationDelay: `${(product.id % 10) * 0.05}s` }}
+                style={{ animationDelay: `${(index % 8) * 0.05}s` }}
               >
-                <ProductCard
-                  id={product.id}
-                  name={product.name}
-                  price={product.price}
-                  image={product.image}
-                  category={product.category}
-                />
+                <ProductCard product={product} />
               </div>
             ))}
           </div>
@@ -238,12 +340,12 @@ const Products = () => {
               <p className="mb-8">
                 Looking for a reliable distributor for your grocery and dairy needs in the Greater Toronto Area?
               </p>
-              <a 
-                href="/contact" 
+              <Link 
+                to="/contact" 
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-[#2a6db6] hover:bg-white/90 shadow-button button-transition"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>
